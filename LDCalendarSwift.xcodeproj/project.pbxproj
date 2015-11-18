@@ -12,6 +12,10 @@
 		02C5A9C11BFC5737000B45ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02C5A9BF1BFC5737000B45ED /* Main.storyboard */; };
 		02C5A9C31BFC5737000B45ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C5A9C21BFC5737000B45ED /* Assets.xcassets */; };
 		02C5A9C61BFC5737000B45ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02C5A9C41BFC5737000B45ED /* LaunchScreen.storyboard */; };
+		02C5A9CF1BFC615F000B45ED /* LDCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5A9CE1BFC615F000B45ED /* LDCalendar.swift */; };
+		02C5A9DF1BFC7078000B45ED /* UIColorExtend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5A9DE1BFC7078000B45ED /* UIColorExtend.swift */; };
+		02F6E9E21BFC782B004F8130 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F6E9E11BFC782B004F8130 /* Const.swift */; };
+		E594F97C76F67EF02A53598A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09093921A2822115F67B86CD /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,12 @@
 		02C5A9C21BFC5737000B45ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02C5A9C51BFC5737000B45ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02C5A9C71BFC5737000B45ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02C5A9CE1BFC615F000B45ED /* LDCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDCalendar.swift; sourceTree = "<group>"; };
+		02C5A9DE1BFC7078000B45ED /* UIColorExtend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtend.swift; sourceTree = "<group>"; };
+		02F6E9E11BFC782B004F8130 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		09093921A2822115F67B86CD /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		36D0D01B63083DA48639D2CF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C586C1B20F418BB23CA89D15 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E594F97C76F67EF02A53598A /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +51,8 @@
 			children = (
 				02C5A9BA1BFC5737000B45ED /* LDCalendarSwift */,
 				02C5A9B91BFC5737000B45ED /* Products */,
+				1FCCAB715DFCE523992A1C90 /* Pods */,
+				A4BDE018A973480A388D4304 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +67,7 @@
 		02C5A9BA1BFC5737000B45ED /* LDCalendarSwift */ = {
 			isa = PBXGroup;
 			children = (
+				02C5A9CD1BFC611C000B45ED /* LDCalendar */,
 				02C5A9BB1BFC5737000B45ED /* AppDelegate.swift */,
 				02C5A9BD1BFC5737000B45ED /* ViewController.swift */,
 				02C5A9BF1BFC5737000B45ED /* Main.storyboard */,
@@ -64,6 +78,33 @@
 			path = LDCalendarSwift;
 			sourceTree = "<group>";
 		};
+		02C5A9CD1BFC611C000B45ED /* LDCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				02C5A9CE1BFC615F000B45ED /* LDCalendar.swift */,
+				02C5A9DE1BFC7078000B45ED /* UIColorExtend.swift */,
+				02F6E9E11BFC782B004F8130 /* Const.swift */,
+			);
+			path = LDCalendar;
+			sourceTree = "<group>";
+		};
+		1FCCAB715DFCE523992A1C90 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				36D0D01B63083DA48639D2CF /* Pods.debug.xcconfig */,
+				C586C1B20F418BB23CA89D15 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A4BDE018A973480A388D4304 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				09093921A2822115F67B86CD /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +112,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 02C5A9CA1BFC5737000B45ED /* Build configuration list for PBXNativeTarget "LDCalendarSwift" */;
 			buildPhases = (
+				A45D0370EDDC0E55C01F6A6D /* Check Pods Manifest.lock */,
 				02C5A9B41BFC5737000B45ED /* Sources */,
 				02C5A9B51BFC5737000B45ED /* Frameworks */,
 				02C5A9B61BFC5737000B45ED /* Resources */,
+				C11928A31E631A6EBB5254E8 /* Embed Pods Frameworks */,
+				CB41084DE6FD5EF6C05AB552 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,13 +174,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A45D0370EDDC0E55C01F6A6D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C11928A31E631A6EBB5254E8 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB41084DE6FD5EF6C05AB552 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		02C5A9B41BFC5737000B45ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02C5A9CF1BFC615F000B45ED /* LDCalendar.swift in Sources */,
 				02C5A9BE1BFC5737000B45ED /* ViewController.swift in Sources */,
 				02C5A9BC1BFC5737000B45ED /* AppDelegate.swift in Sources */,
+				02C5A9DF1BFC7078000B45ED /* UIColorExtend.swift in Sources */,
+				02F6E9E21BFC782B004F8130 /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,9 +340,11 @@
 		};
 		02C5A9CB1BFC5737000B45ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36D0D01B63083DA48639D2CF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LDCalendarSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lidi.LDCalendarSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -256,9 +353,11 @@
 		};
 		02C5A9CC1BFC5737000B45ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C586C1B20F418BB23CA89D15 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LDCalendarSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lidi.LDCalendarSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -284,6 +383,7 @@
 				02C5A9CC1BFC5737000B45ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
