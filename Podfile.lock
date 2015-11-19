@@ -1,0 +1,10 @@
+PODS:
+  - Timepiece (0.4.2)
+
+DEPENDENCIES:
+  - Timepiece
+
+SPEC CHECKSUMS:
+  Timepiece: cf53bb908bf542acc0e3d5f69cabfed869df4ebd
+
+COCOAPODS: 0.39.0

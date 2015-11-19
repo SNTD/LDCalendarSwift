@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		024861B91BFD6C000051925A /* UIImageExtend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024861B81BFD6C000051925A /* UIImageExtend.swift */; };
 		02C5A9BC1BFC5737000B45ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5A9BB1BFC5737000B45ED /* AppDelegate.swift */; };
 		02C5A9BE1BFC5737000B45ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5A9BD1BFC5737000B45ED /* ViewController.swift */; };
 		02C5A9C11BFC5737000B45ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02C5A9BF1BFC5737000B45ED /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		024861B81BFD6C000051925A /* UIImageExtend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtend.swift; sourceTree = "<group>"; };
 		02C5A9B81BFC5737000B45ED /* LDCalendarSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LDCalendarSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C5A9BB1BFC5737000B45ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02C5A9BD1BFC5737000B45ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				02C5A9CE1BFC615F000B45ED /* LDCalendar.swift */,
 				02C5A9DE1BFC7078000B45ED /* UIColorExtend.swift */,
 				02F6E9E11BFC782B004F8130 /* Const.swift */,
+				024861B81BFD6C000051925A /* UIImageExtend.swift */,
 			);
 			path = LDCalendar;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02C5A9CF1BFC615F000B45ED /* LDCalendar.swift in Sources */,
+				024861B91BFD6C000051925A /* UIImageExtend.swift in Sources */,
 				02C5A9BE1BFC5737000B45ED /* ViewController.swift in Sources */,
 				02C5A9BC1BFC5737000B45ED /* AppDelegate.swift in Sources */,
 				02C5A9DF1BFC7078000B45ED /* UIColorExtend.swift in Sources */,
