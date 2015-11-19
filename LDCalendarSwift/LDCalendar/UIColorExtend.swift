@@ -51,12 +51,12 @@ extension UIColor {
     }
 }
 
-extension UIColor {
-    public static func hex(hex: Int) -> UIColor {
-        let red = CGFloat(((hex & 0xFF0000) >> 16)) / 255
-        let green = CGFloat(((hex & 0xFF00) >> 8)) / 255
-        let blue = CGFloat((hex & 0xFF)) / 255
-        
-        return UIColor(red: red, green: green, blue: blue, alpha: 1)
-    }
-}
+//extension UIColor {
+//    public static func hex(hex: Int) -> UIColor {
+//        let red   = CGFloat(((hex & 0xFF0000) >> 16)) / 255
+//        let green = CGFloat(((hex & 0xFF00) >> 8)) / 255
+//        let blue  = CGFloat((hex & 0xFF)) / 255
+//
+//        return UIColor(red: red, green: green, blue: blue, alpha: 1)
+//    }
+//}

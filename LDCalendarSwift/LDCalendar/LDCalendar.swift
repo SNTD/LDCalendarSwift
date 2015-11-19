@@ -47,17 +47,26 @@ class LDCalendar: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        dateBgView                 = UIView.init(frame: frame)
-        dateBgView.alpha           = 0.3
-        dateBgView.backgroundColor = UIColor.blackColor()
-        self.addSubview(dateBgView)
-        
-        contentBgView                        = UIView.init(frame: CGRectMake((kScreenWidth - kUnitWidth*kCol)/2.0, 100.0, kUnitWidth*kCol, 42 + kUnitWidth*kRow + 50))
-        contentBgView.layer.cornerRadius     = 2.0
-        contentBgView.layer.masksToBounds    = true
-        contentBgView.userInteractionEnabled = true
-        contentBgView.backgroundColor        = UIColor.whiteColor()
-        self.addSubview(contentBgView)
+        dateBgView = {
+            let view             = UIView.init(frame: frame)
+            view.alpha           = 0.3
+            view.backgroundColor = UIColor.blackColor()
+            self.addSubview(view)
+
+            return view
+        }()
+
+        contentBgView = {
+            let view                    = UIView.init(frame: CGRectMake((kScreenWidth - kUnitWidth*kCol)/2.0, 100.0, kUnitWidth*kCol, 42 + kUnitWidth*kRow + 50))
+            view.layer.cornerRadius     = 2.0
+            view.layer.masksToBounds    = true
+            view.userInteractionEnabled = true
+            view.backgroundColor        = UIColor.whiteColor()
+            self.addSubview(view)
+
+            return view
+        }()
+
         
         let leftImage:UIImageView = UIImageView.init(frame: CGRectMake(CGRectGetWidth(contentBgView.frame)/3.0 - 8 - 10, (42-13)/2.0, 8, 13))
         leftImage.image           = UIImage.init(named: "com_arrows_right")
@@ -68,12 +77,17 @@ class LDCalendar: UIView {
         rightImage.image           = UIImage.init(named: "com_arrows_right")
         contentBgView.addSubview(rightImage)
         
-        titleLab                        = UILabel.init(frame: CGRectMake(0, 0, CGRectGetWidth(contentBgView.frame), 42))
-        titleLab.textColor              = UIColor.blackColor()
-        titleLab.font                   = UIFont.systemFontOfSize(14)
-        titleLab.textAlignment          = NSTextAlignment.Center
-        titleLab.userInteractionEnabled = true
-        contentBgView.addSubview(titleLab)
+        titleLab = {
+            let lab                    = UILabel.init(frame: CGRectMake(0, 0, CGRectGetWidth(contentBgView.frame), 42))
+            lab.textColor              = UIColor.blackColor()
+            lab.font                   = UIFont.systemFontOfSize(14)
+            lab.textAlignment          = NSTextAlignment.Center
+            lab.userInteractionEnabled = true
+            contentBgView.addSubview(lab)
+            
+            return lab
+        }()
+
         
         let tapGesture = UITapGestureRecognizer(target: self, action: "switchMonthTap:")
         titleLab.addGestureRecognizer(tapGesture)
@@ -82,40 +96,47 @@ class LDCalendar: UIView {
         upLine.backgroundColor = UIColor(hexString: "dddddd")
         contentBgView.addSubview(upLine)
         
-        dateBgView                        = UIView.init(frame: CGRectMake(0, CGRectGetMaxY(titleLab.frame), CGRectGetWidth(contentBgView.frame), kUnitWidth*kRow))
-        dateBgView.userInteractionEnabled = true;
-        dateBgView.backgroundColor        = UIColor(hexString: "ededed")
-        contentBgView.addSubview(dateBgView)
-        
-        
-        doneBtn = UIButton.init(type: .Custom)
-        doneBtn.frame            = CGRectMake((CGRectGetWidth(contentBgView.frame) - 150) / 2.0, CGRectGetHeight(contentBgView.frame) - 40, 150, 30)
-        doneBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        doneBtn.titleLabel?.font = UIFont.systemFontOfSize(14)
-        doneBtn.setBackgroundImage(UIImage.init(named: "b_com_bt_blue_normal")!.stretchableImageWithLeftCapWidth(15, topCapHeight: 10), forState: .Normal)
-        doneBtn.setBackgroundImage(UIImage.init(named: "b_com_bt_blue_normal")!.stretchableImageWithLeftCapWidth(15, topCapHeight: 10), forState: .Selected)
-        doneBtn.setBackgroundImage(UIImage.init(named: "com_bt_gray_normal")!.stretchableImageWithLeftCapWidth(15, topCapHeight: 10), forState: .Disabled)
-        doneBtn.addTarget(self,action:Selector("doneBtnClick"),forControlEvents:.TouchUpInside)
-        doneBtn.setTitle("确定", forState: .Normal)
-        contentBgView.addSubview(doneBtn)
+        dateBgView = {
+            let view                    = UIView.init(frame: CGRectMake(0, CGRectGetMaxY(titleLab.frame), CGRectGetWidth(contentBgView.frame), kUnitWidth*kRow))
+            view.userInteractionEnabled = true;
+            view.backgroundColor        = UIColor(hexString: "ededed")
+            contentBgView.addSubview(view)
+
+            return view
+        }()
+
+        doneBtn = {
+            let btn = UIButton.init(type: .Custom)
+            btn.frame            = CGRectMake((CGRectGetWidth(contentBgView.frame) - 150) / 2.0, CGRectGetHeight(contentBgView.frame) - 40, 150, 30)
+            btn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            btn.titleLabel?.font = UIFont.systemFontOfSize(14)
+            btn.setBackgroundImage(UIImage.init(named: "b_com_bt_blue_normal")!.stretchableImageWithLeftCapWidth(15, topCapHeight: 10), forState: .Normal)
+            btn.setBackgroundImage(UIImage.init(named: "b_com_bt_blue_normal")!.stretchableImageWithLeftCapWidth(15, topCapHeight: 10), forState: .Selected)
+            btn.setBackgroundImage(UIImage.init(named: "com_bt_gray_normal")!.stretchableImageWithLeftCapWidth(15, topCapHeight: 10), forState: .Disabled)
+            btn.addTarget(self,action:Selector("doneBtnClick"),forControlEvents:.TouchUpInside)
+            btn.setTitle("确定", forState: .Normal)
+            contentBgView.addSubview(btn)
+            
+            return btn
+        }()
         
         //初始化数据
         initData()
     }
 
     private func initData() {
-        self.year = NSDate.today().year
+        self.year  = NSDate.today().year
         self.month = NSDate.today().month
-        
+
         for _ in 0...kTotalNum {
             currentMonthDaysArray.append(0)
         }
-        
+
         refreshDateTitle()
     }
     
     func switchMonthTap(tap:UITapGestureRecognizer) {
-        let loc:CGPoint = tap.locationInView(titleLab)
+        let loc:CGPoint           = tap.locationInView(titleLab)
         let titleLabWidth:CGFloat = CGRectGetWidth(titleLab.frame)
         if loc.x <= titleLabWidth/3.0 {
             leftSwitch()
@@ -130,9 +151,9 @@ class LDCalendar: UIView {
             month -= 1
         }else {
             month = 12
-            year -= 1
+            year  -= 1
         }
-        
+
         refreshDateTitle()
     }
     private func rightSwitch() {
@@ -140,9 +161,9 @@ class LDCalendar: UIView {
             month += 1
         }else {
             month = 1
-            year += 1
+            year  += 1
         }
-        
+
         refreshDateTitle();
     }
     
@@ -169,70 +190,70 @@ class LDCalendar: UIView {
         
         var baseRect:CGRect = CGRectMake(0, 0, kUnitWidth, kUnitWidth)
         for i in 0..<titles.count {
-            let lab:UILabel = UILabel.init(frame: baseRect)
-            lab.textColor = UIColor(hexString: "848484")
+            let lab:UILabel   = UILabel.init(frame: baseRect)
+            lab.textColor     = UIColor(hexString: "848484")
             lab.textAlignment = NSTextAlignment.Center
-            lab.font = UIFont.systemFontOfSize(10.0)
-            lab.text = titles[i]
+            lab.font          = UIFont.systemFontOfSize(10.0)
+            lab.text          = titles[i]
             dateBgView.addSubview(lab)
-            
+
             baseRect.origin.x += baseRect.size.width
         }
     }
     
     func drawCurrentMonthDate() {
-        let monthFirstDay = NSDate.date(year: year, month: month, day: 1)
+        let monthFirstDay      = NSDate.date(year: year, month: month, day: 1)
         currentMonthStartIndex = monthFirstDay.weekday
         if currentMonthStartIndex == 1 {
-            currentMonthStartIndex = 6
+        currentMonthStartIndex = 6
         }else {
-            currentMonthStartIndex -= 2
+        currentMonthStartIndex -= 2
         }
         print("\(currentMonthStartIndex)")
-        var baseRect:CGRect = CGRectMake(CGFloat(currentMonthStartIndex)*kUnitWidth, kUnitWidth, kUnitWidth, kUnitWidth)
-        for var i = currentMonthStartIndex; i < kTotalNum; i++ {
+        var baseRect:CGRect    = CGRectMake(CGFloat(currentMonthStartIndex)*kUnitWidth, kUnitWidth, kUnitWidth, kUnitWidth)
+        for var i              = currentMonthStartIndex; i < kTotalNum; i++ {
             if CGFloat(i) % kCol == 0 && i != 0 {
-                baseRect.origin.y += baseRect.size.height
-                baseRect.origin.x = 0.0
+        baseRect.origin.y      += baseRect.size.height
+        baseRect.origin.x      = 0.0
             }
-            
+
             createBtn(i - currentMonthStartIndex, frame:baseRect)
-            
-            baseRect.origin.x += baseRect.size.width
+
+        baseRect.origin.x      += baseRect.size.width
         }
     }
     
     func createBtn(index:Int , frame:CGRect) -> UIButton {
-        let btn = UIButton.init(type: .Custom)
-        btn.tag = kBtnStartTag + index
-        btn.frame = frame
+        let btn              = UIButton.init(type: .Custom)
+        btn.tag              = kBtnStartTag + index
+        btn.frame            = frame
         btn.titleLabel?.font = UIFont.systemFontOfSize(10)
         
-        let monthFirstDay = NSDate.date(year: year, month: month, day: 1)
-        let date:NSDate = monthFirstDay + index.days
+        let monthFirstDay            = NSDate.date(year: year, month: month, day: 1)
+        let date:NSDate              = monthFirstDay + index.days
         currentMonthDaysArray[index] = date.timeIntervalSince1970
-        var title:String = String(date.day)
+        var title:String             = String(date.day)
         if date.isEqualToDate(NSDate.today()) {
-            title = "今天"
+            title                 = "今天"
             btn.layer.borderColor = UIColor(hexString: "f49e79").CGColor
             btn.layer.borderWidth = 0.5
         }
         else if (date.day == 1) {
-            let monthLab:UILabel = UILabel.init(frame: CGRectMake(0, frame.size.height - 7, frame.size.width, 7))
+            let monthLab:UILabel   = UILabel.init(frame: CGRectMake(0, frame.size.height - 7, frame.size.width, 7))
             monthLab.textAlignment = NSTextAlignment.Center
-            monthLab.font = UIFont.systemFontOfSize(7)
-            monthLab.textColor = UIColor(hexString: "c0c0c0")
-            monthLab.text = String(date.month)
+            monthLab.font          = UIFont.systemFontOfSize(7)
+            monthLab.textColor     = UIColor(hexString: "c0c0c0")
+            monthLab.text          = String(date.month)
             btn.addSubview(monthLab)
         }
         
         if date > NSDate.today() {
             btn.setTitleColor(UIColor(hexString: "2b2b2b"), forState: .Normal)
             btn.setTitleColor(UIColor.whiteColor(), forState: .Selected)
-            
+
             btn.setBackgroundImage(UIImage.imageWithColor(UIColor.init(hexString: "77d2c5")), forState: .Selected)
             btn.setBackgroundImage(UIImage.imageWithColor(UIColor.clearColor()), forState: .Normal)
-                
+
             btn.enabled = true
         } else {
             btn.setTitleColor(UIColor(hexString: "bfbfbf"), forState: .Disabled)
@@ -260,7 +281,6 @@ class LDCalendar: UIView {
             }
         }
         
-        
         //如果点击的时间不在本月，切换到下一月
         let date = NSDate.init(timeIntervalSince1970: currentInterval)
         if btn.selected && date.month > self.month {
@@ -286,7 +306,7 @@ class LDCalendar: UIView {
     func show() {
         self.hidden = false
     }
-    
+
     func hide() {
         self.hidden = true
     }

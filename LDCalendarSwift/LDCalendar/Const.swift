@@ -8,9 +8,9 @@
 
 import UIKit
 
-let kScreenWidth:CGFloat = UIScreen.mainScreen().bounds.size.width
+let kScreenWidth:CGFloat  = UIScreen.mainScreen().bounds.size.width
 let kScreenHeight:CGFloat = UIScreen.mainScreen().bounds.size.height
-let kScreenRadio:CGFloat = kScreenWidth/320.0
+let kScreenRadio:CGFloat  = kScreenWidth/320.0
 
 class Const: NSObject {
 

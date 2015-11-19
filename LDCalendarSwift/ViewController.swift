@@ -17,7 +17,7 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.navigationItem.title = "LDCalendar"
+        self.navigationItem.title      = "LDCalendar"
         self.tableView.tableFooterView = UIView.init(frame: CGRectZero)
     }
     
@@ -30,8 +30,8 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CalendarCell")!
-        let showLab = cell.contentView.viewWithTag(100) as! UILabel
+        let cell     = tableView.dequeueReusableCellWithIdentifier("CalendarCell")!
+        let showLab  = cell.contentView.viewWithTag(100) as! UILabel
         showLab.text = "已选择日期\r\n" + showstr(self.seletedDays)
         return cell
     }
@@ -59,7 +59,7 @@ class ViewController: UITableViewController {
         var str:String = ""
         for i in 0..<result.count {
             let date:NSDate = NSDate.init(timeIntervalSince1970: result[i])
-            str += ("\(date.month).\(date.day) ")
+            str             += ("\(date.month).\(date.day) ")
         }
         return str
     }
