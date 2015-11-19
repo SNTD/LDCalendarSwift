@@ -8,8 +8,7 @@
 
 ## 日历效果演示
 
-![](https://github.com/sntd/LDCalendar/raw/master/Picture/LDCalendar.gif)
-
+![](https://github.com/sntd/LDCalendarSwift/raw/master/picture/LDCalendar.gif)
 
 ## 功能说明：
 
@@ -28,5 +27,7 @@ if calendar == nil {
 calendar.defaultDays = self.seletedDays
 calendar.show()
 ```
+
 ## 特殊说明
+
 因为用到了NSDate的第三方扩展[Timepiece](https://github.com/naoty/Timepiece)，所以此日历需要iOS8+
