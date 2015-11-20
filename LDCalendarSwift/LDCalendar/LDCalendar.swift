@@ -24,17 +24,17 @@ class LDCalendar: UIView {
     private var contentBgView:UIView!
     private var doneBtn:UIButton!
     //Data
-    private var month:Int                              = 0
-    private var year:Int                               = 0
-    private var currentMonthDaysArray:[NSTimeInterval] = []
-    private var currentMonthStartIndex:Int             = 0
-    private var selectArray:[NSTimeInterval]           = []
+    private var month:Int                  = 0
+    private var year:Int                   = 0
+    private var currentMonthDaysArray      = [NSTimeInterval]()
+    private var currentMonthStartIndex:Int = 0
+    private var selectArray                = [NSTimeInterval]()
 
     //供外面调用的接口
     var complete:DaysSelectedBlock!
-    var defaultDays:[NSTimeInterval] = [] {
+    var defaultDays = [NSTimeInterval]() {
         didSet {
-            selectArray = defaultDays
+            self.selectArray = defaultDays
             //已选择的高亮选中
             refreshDateView()
         }
@@ -87,7 +87,6 @@ class LDCalendar: UIView {
             
             return lab
         }()
-
         
         let tapGesture = UITapGestureRecognizer(target: self, action: "switchMonthTap:")
         titleLab.addGestureRecognizer(tapGesture)
@@ -146,7 +145,6 @@ class LDCalendar: UIView {
     }
     
     private func leftSwitch() {
-        //左
         if month > 1 {
             month -= 1
         }else {
@@ -205,21 +203,21 @@ class LDCalendar: UIView {
         let monthFirstDay      = NSDate.date(year: year, month: month, day: 1)
         currentMonthStartIndex = monthFirstDay.weekday
         if currentMonthStartIndex == 1 {
-        currentMonthStartIndex = 6
+            currentMonthStartIndex = 6
         }else {
-        currentMonthStartIndex -= 2
+            currentMonthStartIndex -= 2
         }
         print("\(currentMonthStartIndex)")
+        
         var baseRect:CGRect    = CGRectMake(CGFloat(currentMonthStartIndex)*kUnitWidth, kUnitWidth, kUnitWidth, kUnitWidth)
-        for var i              = currentMonthStartIndex; i < kTotalNum; i++ {
+        for var i = currentMonthStartIndex; i < kTotalNum; i++ {
             if CGFloat(i) % kCol == 0 && i != 0 {
-        baseRect.origin.y      += baseRect.size.height
-        baseRect.origin.x      = 0.0
+                baseRect.origin.y += baseRect.size.height
+                baseRect.origin.x = 0.0
             }
 
             createBtn(i - currentMonthStartIndex, frame:baseRect)
-
-        baseRect.origin.x      += baseRect.size.width
+            baseRect.origin.x += baseRect.size.width
         }
     }
     
